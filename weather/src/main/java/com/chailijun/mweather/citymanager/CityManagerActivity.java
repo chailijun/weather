@@ -94,9 +94,10 @@ public class CityManagerActivity extends BaseActivity {
         initBanner();
 
 //        if (TimeUtils.isShowTime(Constants.BLOCKAD_TIME))
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N){
-            mBannerView.loadAD();
-        }
+//        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N){
+//            mBannerView.loadAD();
+//        }
+        mBannerView.loadAD();
 
         initRecyclerView();
     }
