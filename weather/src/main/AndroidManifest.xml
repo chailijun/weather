@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.chailijun.mweather">
 
+    <uses-sdk
+        android:minSdkVersion="9"
+        android:targetSdkVersion="22" />
+
     <!-- 这个权限用于进行网络定位 -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <!-- 这个权限用于访问GPS定位 -->
@@ -22,10 +26,9 @@
     <!-- SD卡读取权限，用户写入离线定位数据 -->
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
 
-    <uses-sdk
-        android:minSdkVersion="9"
-        android:targetSdkVersion="22" /> <!-- 最低支持Android Sdk Version 9 -->
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
 
+    <!-- 最低支持Android Sdk Version 9 -->
     <application
         android:name=".WeatherApp"
         android:allowBackup="true"
@@ -35,15 +38,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar_Theme2">
 
-        <!--广点通-->
+        <!-- 广点通 -->
         <service
             android:name="com.qq.e.comm.DownloadService"
             android:exported="false" />
+
         <activity
             android:name="com.qq.e.ads.ADActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize" />
 
-        <!--友盟-->
+        <!-- 友盟 -->
         <meta-data
             android:name="UMENG_APPKEY"
             android:value="58a508b265b6d669d5001067" />
@@ -82,16 +86,13 @@
             android:name=".dailyforecast.DailyForecastActivity"
             android:launchMode="singleTask" />
 
-        <!--
-        <meta-data
+        <!--<meta-data
             android:name="UMENG_APPKEY"
             android:value="58a2dc12f5ade42b89002232">
-        </meta-data>
-        -->
+        </meta-data>-->
 
 
-        <!--
-        &lt;!&ndash;微信&ndash;&gt;
+        <!--微信-->
         <activity
             android:name=".wxapi.WXEntryActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
@@ -100,17 +101,16 @@
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 
 
-        &lt;!&ndash;qq精简版&ndash;&gt;
+        <!--qq精简版-->
         <activity
             android:name="com.umeng.qq.tencent.AuthActivity"
             android:launchMode="singleTask"
             android:noHistory="true" >
+
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
-
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-
                 <data android:scheme="tencent100424468" />
             </intent-filter>
         </activity>
@@ -119,10 +119,19 @@
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:configChanges="orientation|keyboardHidden|screenSize"/>
-        -->
+
+        <!--分享编辑页(只有新浪微博精简版，豆瓣人人腾讯微博需要)-->
+        <activity
+            android:name="com.umeng.socialize.editorpage.ShareActivity"
+            android:theme="@style/Theme.UMDefault"
+            android:excludeFromRecents="true"
+            />
+
+
 
         <activity android:name=".setting.SettingActivity" />
-        <activity android:name=".setting.SettingThemeActivity"></activity>
+        <activity android:name=".setting.SettingThemeActivity" />
+        <activity android:name=".share.ShareActivity"></activity>
     </application>
 
 </manifest>

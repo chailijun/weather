@@ -17,6 +17,7 @@ import com.chailijun.mweather.R;
 import com.chailijun.mweather.base.BaseActivity;
 import com.chailijun.mweather.main.MainActivity;
 import com.chailijun.mweather.utils.Constants;
+import com.chailijun.mweather.utils.GetSignature;
 import com.chailijun.mweather.utils.Logger;
 import com.chailijun.mweather.utils.SPUtil;
 import com.qq.e.ads.splash.SplashAD;
