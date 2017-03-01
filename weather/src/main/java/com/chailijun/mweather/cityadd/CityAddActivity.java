@@ -349,20 +349,23 @@ public class CityAddActivity extends BaseActivity {
                     .where(CityDao.Properties.CityZh.eq(districtZh)).list();
             if (districtList != null && districtList.size() > 0) {//县/区匹配成功
                 //验证对应的省份
-                if (districtList.get(i).getProvinceZh().equalsIgnoreCase(provinceUn)) {
-                    Logger.d(TAG, "县-->匹配成功的城市:" + districtList.get(i).getCityZh());
-                    Logger.d(TAG, "县-->匹配成功的城市:" + districtList.get(i).getCityId());
+                for (int j = 0; j < districtList.size(); j++) {
+                    if (districtList.get(j).getProvinceZh().equalsIgnoreCase(provinceUn)) {
+                        Logger.d(TAG, "县-->匹配成功的城市:" + districtList.get(j).getCityZh());
+                        Logger.d(TAG, "县-->匹配成功的城市:" + districtList.get(j).getCityId());
 
-                    //写入已经定位了
-                    SPUtil.put(CityAddActivity.this, Constants.IS_LOCATION, true);
+                        //写入已经定位了
+                        SPUtil.put(CityAddActivity.this, Constants.IS_LOCATION, true);
 
-                    //添加匹配成功后的定位城市
-                    AddCityUtils.addCity(CityAddActivity.this,
-                            mSelectCityDao, districtList.get(i), true);
+                        //添加匹配成功后的定位城市
+                        AddCityUtils.addCity(CityAddActivity.this,
+                                mSelectCityDao, districtList.get(j), true);
 
-                    flag = true;
-                    break;
+                        flag = true;
+                        break;
+                    }
                 }
+
             }
         }
 
