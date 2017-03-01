@@ -191,8 +191,9 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
                     }
                 }else {
                     showToast("权限获取成功");
+                    doWork();
                 }
-                doWork();
+
             }else {
                 doWork();
             }
@@ -222,6 +223,7 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
                     public void onClick(DialogInterface dialog, int which) {
 
                         dialog.dismiss();
+                        doWork();
                     }
                 }).setCancelable(false).show();
     }
@@ -260,12 +262,17 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
 //                    showDialogTipUserRequestPermission();
                     startRequestPermission();
                 }else {
-                    /*if (dialog != null && dialog.isShowing()) {
+                    if (dialog != null && dialog.isShowing()) {
                         dialog.dismiss();
-                    }*/
-                    Toast.makeText(this, "权限获取成功", Toast.LENGTH_SHORT).show();
+                    }
+                    showToast("权限获取成功");
+                    doWork();
                 }
+            }else {
+                doWork();
             }
+        }else {
+            finish();
         }
 
     }
