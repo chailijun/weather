@@ -17,7 +17,7 @@ public class Logger {
 
     static {
         isWriteToLog = false;
-        isDebug = true;
+        isDebug = false;
         memDebug = false;
     }
 
