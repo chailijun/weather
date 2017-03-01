@@ -58,7 +58,7 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
 
         setTheme(R.style.AppTheme_NoActionBar_Theme1);
 
-        applyPermission();
+
 
         Bundle bundle = getIntent().getExtras();
         initParms(bundle);
@@ -87,7 +87,13 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
 
         initView(mContextView);
         setListener();
-//        doBusiness(this);
+
+        applyPermission();
+
+    }
+
+    private void doWork() {
+        doBusiness(this);
     }
 
     /***************动态权限申请（代码开始处）**********************/
@@ -125,6 +131,8 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
 //                showDialogTipUserRequestPermission();
                 startRequestPermission();
             }
+        }else {
+            doWork();
         }
     }
 
