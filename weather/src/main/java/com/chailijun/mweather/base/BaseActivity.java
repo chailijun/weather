@@ -58,6 +58,8 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
 
         setTheme(R.style.AppTheme_NoActionBar_Theme1);
 
+        applyPermission();
+
         Bundle bundle = getIntent().getExtras();
         initParms(bundle);
 
@@ -85,11 +87,6 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
 
         initView(mContextView);
         setListener();
-
-        applyPermission();
-    }
-
-    private void doWork() {
         doBusiness(this);
     }
 
