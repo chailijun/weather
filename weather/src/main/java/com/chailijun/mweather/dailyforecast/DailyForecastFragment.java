@@ -89,14 +89,11 @@ public class DailyForecastFragment extends BaseFragment {
 
         bannerContainer= $(view,R.id.bannerContainer);
 
-//        if (TimeUtils.isShowTime(Constants.BLOCKAD_TIME)){
-//
-//
-//        }
         initBanner();
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N){
-            bv.loadAD();
-        }
+//        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N){
+//            bv.loadAD();
+//        }
+        bv.loadAD();
     }
 
     private void initBanner() {
