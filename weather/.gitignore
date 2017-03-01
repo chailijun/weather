@@ -1,4 +1,4 @@
-.gradle/
+﻿.gradle/
 
 .DS_Store
 
@@ -27,8 +27,3 @@ output/
 =======
 .idea
 >>>>>>> 1ee4612a68766f117e52ed9175bb01cc17c9088f
-
-#忽略一些敏感数据
-Constants.java
-ApiManage.java
-ApiService.java
