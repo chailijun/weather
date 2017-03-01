@@ -62,18 +62,23 @@ public class WeatherPresenter implements WeatherContract.Presenter {
             int timeSpan = TimeUtils.getTimeSpan(TimeUtils.TYPE_MINUTES,
                             System.currentTimeMillis(), selectCity.getUpdateTime());
 
+//            Logger.d(TAG,"数据未过期，直接从数据库中取");
+            WeatherSet weatherSet =
+                    JsonUtil.fromJson(selectCity.getWeatherSet(), WeatherSet.class);
+            mWeatherView.showWeather(weatherSet);
+
             if (timeSpan > Constants.UPDATE_FREQUENCY) {
                 //数据过期(或者新添加的城市)，重新请求
                 Logger.d(TAG,"数据已过期，重新请求");
                 loadWeatherFromNet(selectCity);
-            }else {
+            }/*else {
 
                 Logger.d(TAG,"数据未过期，直接从数据库中取");
                 WeatherSet weatherSet =
                         JsonUtil.fromJson(selectCity.getWeatherSet(), WeatherSet.class);
 
                 mWeatherView.showWeather(weatherSet);
-            }
+            }*/
         }else {
             loadWeatherFromNet(city);
         }
