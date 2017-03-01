@@ -130,6 +130,8 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
                 // 如果没有授予该权限，就去提示用户请求
 //                showDialogTipUserRequestPermission();
                 startRequestPermission();
+            }else {
+                doWork();
             }
         }else {
             doWork();
@@ -169,19 +171,33 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (requestCode == BAIDU_READ_PHONE_STATE) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                if (grantResults[0] != PackageManager.PERMISSION_GRANTED) {
+                if (grantResults[0] != PackageManager.PERMISSION_GRANTED ||
+                        grantResults[1] != PackageManager.PERMISSION_GRANTED ||
+                        grantResults[2] != PackageManager.PERMISSION_GRANTED ||
+                        grantResults[3] != PackageManager.PERMISSION_GRANTED ||
+                        grantResults[4] != PackageManager.PERMISSION_GRANTED) {
                     // 判断用户是否 点击了不再提醒。(检测该权限是否还可以申请)
-                    boolean b = shouldShowRequestPermissionRationale(permissions[0]);
-                    if (!b) {
+                    boolean a = shouldShowRequestPermissionRationale(permissions[0]);
+                    boolean b = shouldShowRequestPermissionRationale(permissions[1]);
+                    boolean c = shouldShowRequestPermissionRationale(permissions[2]);
+                    boolean d = shouldShowRequestPermissionRationale(permissions[3]);
+                    boolean e = shouldShowRequestPermissionRationale(permissions[4]);
+                    if (!a || !b || !c || !d || !e) {
                         // 提示用户去应用设置界面手动开启权限
                         showDialogTipUserGoToAppSettting();
                     }else {
-                        Toast.makeText(this, "权限获取失败，将无法获取当前位置", Toast.LENGTH_SHORT).show();
+                        showToast("权限获取失败，将无法获取当前位置");
+                        doWork();
                     }
                 }else {
-                    Toast.makeText(this, "权限获取成功", Toast.LENGTH_SHORT).show();
+                    showToast("权限获取成功");
                 }
+                doWork();
+            }else {
+                doWork();
             }
+        }else {
+            finish();
         }
 
     }
