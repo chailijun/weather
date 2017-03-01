@@ -87,7 +87,7 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
 
         initView(mContextView);
         setListener();
-        doBusiness(this);
+//        doBusiness(this);
     }
 
     /***************动态权限申请（代码开始处）**********************/
