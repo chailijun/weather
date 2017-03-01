@@ -79,41 +79,50 @@ public class CityAddActivity extends BaseActivity {
     private BDLocationListener mListener = new BDLocationListener() {
         @Override
         public void onReceiveLocation(BDLocation location) {
-            if (null != location && location.getLocType() != BDLocation.TypeServerError) {
+            if (null != location) {
 
-                Logger.d(TAG, "省份:" + location.getProvince());
-                Logger.d(TAG, "城市:" + location.getCity());
-                Logger.d(TAG, "城市编码:" + location.getCityCode());
-                Logger.d(TAG, "区/县:" + location.getDistrict());
-                Logger.d(TAG, "街道:" + location.getStreet());
-                Logger.d(TAG, "街道号码:" + location.getStreetNumber());
-                Logger.d(TAG, "经度:" + location.getLongitude());
-                Logger.d(TAG, "纬度:" + location.getLatitude());
-                Logger.d(TAG, "地址:" + location.getAddrStr());
+//                Logger.d(TAG, "省份:" + location.getProvince());
+//                Logger.d(TAG, "城市:" + location.getCity());
+//                Logger.d(TAG, "城市编码:" + location.getCityCode());
+//                Logger.d(TAG, "区/县:" + location.getDistrict());
+//                Logger.d(TAG, "街道:" + location.getStreet());
+//                Logger.d(TAG, "街道号码:" + location.getStreetNumber());
+//                Logger.d(TAG, "经度:" + location.getLongitude());
+//                Logger.d(TAG, "纬度:" + location.getLatitude());
+//                Logger.d(TAG, "地址:" + location.getAddrStr());
 
                 if (location.getLocType() == BDLocation.TypeGpsLocation) {// GPS定位结果
                     showToast("GPS定位成功");
+                    saveLocationCity(location);
                 } else if (location.getLocType() == BDLocation.TypeNetWorkLocation) {// 网络定位结果
                     showToast("网络定位成功");
+                    saveLocationCity(location);
                 } else if (location.getLocType() == BDLocation.TypeOffLineLocation) {// 离线定位结果
                     showToast("离线定位成功");
+                    saveLocationCity(location);
                 } else if (location.getLocType() == BDLocation.TypeServerError) {
                     showToast("服务端网络定位失败");
+
+                    progress_bar.setVisibility(View.GONE);
+                    iv_icon.setVisibility(View.GONE);
+                    tv_location_city.setText(getString(R.string.location_failed));
+
                 } else if (location.getLocType() == BDLocation.TypeNetWorkException) {
                     showToast("网络不同导致定位失败，请检查网络是否通畅");
+
+                    progress_bar.setVisibility(View.GONE);
+                    iv_icon.setVisibility(View.GONE);
+                    tv_location_city.setText(getString(R.string.location_failed));
+
                 } else if (location.getLocType() == BDLocation.TypeCriteriaException) {
                     showToast("无法获取有效定位依据导致定位失败，一般是由于手机的原因，" +
                             "处于飞行模式下一般会造成这种结果，可以试着重启手机");
-                }
 
-                saveLocationCity(location);
-            } else {
-                Logger.e(TAG, "定位失败");
-                progress_bar.setVisibility(View.GONE);
-                iv_icon.setVisibility(View.GONE);
-                tv_location_city.setText(getString(R.string.location_failed));
+                    progress_bar.setVisibility(View.GONE);
+                    iv_icon.setVisibility(View.GONE);
+                    tv_location_city.setText(getString(R.string.location_failed));
+                }
             }
-            locationService.stop();
         }
     };
 
@@ -323,6 +332,7 @@ public class CityAddActivity extends BaseActivity {
     private void saveLocationCity(BDLocation location) {
 
         progress_bar.setVisibility(View.GONE);
+        locationService.stop();
 
         String provinceZh = location.getProvince();//省
         String cityZh = location.getCity();//市
