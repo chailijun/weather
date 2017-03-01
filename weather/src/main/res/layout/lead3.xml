@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:fitsSystemWindows="true"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/tutorial_3_light"/>
+
+    <com.chailijun.mweather.customview.ImageFadeIn
+        android:id="@+id/image_fade_in"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="80dp"
+        app:first_image="@drawable/tutorial_3_text_1"
+        app:second_image="@drawable/tutorial_3_text_2"
+        app:third_image="@drawable/tutorial_3_text_3"
+        app:fourth_image="@drawable/tutorial_3_text_4">
+
+    </com.chailijun.mweather.customview.ImageFadeIn>
+</RelativeLayout>

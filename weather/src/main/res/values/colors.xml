@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="red">#FF0000</color>
+    <color name="green">#00FF00</color>
+    <color name="blue">#15A0F5</color>
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="title_bg">#2A85B4</color>
+    <!--<color name="title_bg">#585858</color>-->
+    <color name="unSelectTxt">#bbB4B8BB</color>
+
+    <color name="colorGrayText">#787878</color>
+    <color name="colorGrayText2">#88787878</color>
+
+    <color name="colorLine">#D8D8D8</color>
+    <color name="colorMoreParameterDivide">#D8D8D8</color>
+    <color name="colorPress">#D7D7D7</color>
+
+    <color name="color_light_blue">#00DDB6</color>
+    <!--<color name="citySelect">#FD8C4B</color>-->
+    <color name="citySelect">#2A85B4</color>
+    <color name="colorBlur">#33000000</color>
+    <color name="colorBG">#44000000</color>
+    <color name="colorItemPress">#66000000</color>
+    <color name="colorAqiBG">#22000000</color>
+    <color name="colorGrayBG">#FAFAFA</color>
+
+    <!--自定义Dialog颜色-->
+    <color name="colorDialog">#F2F2F2</color>
+    <color name="colorDialog2">#D3D3D3</color>
+    <color name="colorDialogLine">#7f0d0061</color>
+
+    <!--主题颜色-->
+    <!--主题一-->
+    <color name="theme1_start">#ffb5b5</color>
+    <color name="theme1_center">#ff0000</color>
+    <color name="theme1_end">#750000</color>
+    <color name="theme1_text">#ff0000</color>
+    <color name="theme1_ColorScheme">#ff0000</color>
+    <color name="theme1_bottom_start">#ff2c2c</color>
+    <color name="theme1_bottom_center">#eb0000</color>
+    <color name="theme1_bottom_end">#c40101</color>
+
+    <!--主题二-->
+    <color name="theme2_start">#71B3D2</color>
+    <color name="theme2_center">#516169</color>
+    <color name="theme2_end">#30424C</color>
+    <color name="theme2_text">#2A85B4</color>
+    <color name="theme2_ColorScheme">#71B3D2</color>
+    <color name="theme2_bottom_start">#5C7C8C</color>
+    <color name="theme2_bottom_center">#506068</color>
+    <color name="theme2_bottom_end">#30424C</color>
+    <color name="selectColor">#934529</color>
+    <color name="unselectColor">#66934529</color>
+</resources>

@@ -1,0 +1,53 @@
+<resources>
+    <string name="app_name">迷风天气</string>
+    <string name="city_manager">城市管理</string>
+    <string name="city_add">添加城市</string>
+    <string name="input_cityname">输入城市名称、拼音或英文</string>
+    <string name="cancel">取消</string>
+    <string name="at_least_one_city">请至少添加一个城市</string>
+    <string name="city_has_been_added">该城市已添加</string>
+    <string name="leave_app">再按一次退出</string>
+    <string name="click_to_skip">跳过</string>
+
+    <string name="city_max">最多添加%1$d个城市</string>
+    <string name="left_slide_delete">向左滑到底删除城市</string>
+    <string name="update_before_minutes">%1$d分钟前更新</string>
+    <string name="update_success">加载完成</string>
+    <string name="night">夜间</string>
+    <string name="day">白天</string>
+    <string name="sunrise">日出%1$s</string>
+    <string name="sunrise_txt">日出</string>
+    <string name="sunset">日落%1$s</string>
+    <string name="sunset_txt">日落</string>
+    <string name="release_time">%1$s发布</string>
+    <string name="sendible_temperature">体感</string>
+    <string name="humidity">湿度</string>
+    <string name="pressure">气压</string>
+    <string name="visibility">能见度</string>
+    <string name="wind_direction">风向</string>
+    <string name="wind_speed">风力</string>
+    <string name="more_parameters">更多指标</string>
+    <string name="load_weather_failed">天气加载失败，可下拉重新加载</string>
+    <string name="set_net">网络连接不可用,是否进行设置?</string>
+    <string name="ok">确认</string>
+    <string name="set">设置</string>
+    <string name="location_failed">定位失败，点击重试或手动选择城市</string>
+    <string name="curr_city">定位:%1$s</string>
+    <string name="locating">正在定位</string>
+    <string name="click_locating">点击定位</string>
+    <string name="hot_city">热门城市</string>
+    <string name="location_city">定位地址</string>
+    <string name="ji">级</string>
+    <string name="wind">风</string>
+    <string name="percent">%</string>
+    <string name="pa">hPa</string>
+    <string name="kilometer">km</string>
+    <string name="du">°</string>
+    <string name="set_net_title">网络设置提示</string>
+    <string name="setting_theme">设置主题</string>
+    <string name="select_theme">选择主题</string>
+
+    <string name="theme1_name">红系</string>
+    <string name="theme2_name">蓝系</string>
+    <string name="start_app">一键进入</string>
+</resources>

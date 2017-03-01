@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:id="@+id/rl_citylist_item"
+    android:layout_height="@dimen/city_manager_item_height"
+    android:background="@color/white">
+
+    <ImageView
+        android:id="@+id/iv_location"
+        android:layout_width="14dp"
+        android:layout_height="14dp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/marginLeft"
+        android:scaleType="centerInside"
+        android:src="@drawable/item_location"
+        android:visibility="gone"
+        tools:visibility="visible" />
+
+    <TextView
+        android:id="@+id/tv_city"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="30dp"
+        android:textColor="@color/colorGrayText"
+        android:textSize="@dimen/text_size_18"
+        tools:text="上海" />
+
+
+    <ImageView
+        android:id="@+id/iv_weather"
+        android:layout_width="26dp"
+        android:layout_height="26dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="@dimen/marginRight"
+        android:scaleType="centerInside" />
+
+    <TextView
+        android:id="@+id/tv_temp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/marginLeft"
+        android:layout_toLeftOf="@id/iv_weather"
+        android:textColor="@color/colorGrayText"
+        android:textSize="@dimen/text_size_20"
+        tools:text="9/-1 ℃" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/line_0dot8_dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorLine" />
+
+
+</RelativeLayout>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_setting_theme"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/setting_theme_item_height"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    tools:context="com.chailijun.mweather.setting.SettingThemeActivity">
+
+    <TextView
+        android:id="@+id/tv_theme_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:text="中国红"
+        android:textColor="@color/colorGrayText"
+        android:textSize="@dimen/text_size_16" />
+
+    <ImageView
+        android:layout_weight="1"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"
+        android:id="@+id/iv_theme_color"
+        android:layout_width="100dp"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/marginLeft" />
+
+    <!--<ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/marginRight"
+        android:background="@drawable/selector_theme_select" />-->
+
+    <android.support.v7.widget.AppCompatCheckBox
+        android:layout_marginRight="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+</LinearLayout>

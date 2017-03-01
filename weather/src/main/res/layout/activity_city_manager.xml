@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_city_manager"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:background="?attr/theme_start"
+    android:orientation="vertical"
+    tools:context="com.chailijun.mweather.citymanager.CityManagerActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/top_title_height">
+
+        <ImageView
+            android:id="@+id/iv_title_back"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/top_title_height"
+            android:background="@drawable/selector_title_back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/city_manager"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_18" />
+
+        <ImageView
+            android:id="@+id/iv_title_add"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/top_title_height"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/selector_title_add" />
+
+    </RelativeLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_weight="1"
+        android:id="@+id/rv_city"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/colorGrayBG" />
+
+    <FrameLayout
+        android:background="@color/colorGrayBG"
+        android:id="@+id/bannerContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </FrameLayout>
+</LinearLayout>

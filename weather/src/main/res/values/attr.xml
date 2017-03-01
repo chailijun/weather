@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--以下属性的含义依次为：未选中时颜色、选中时颜色、指示器（圆）半径、两个指示器最外层表面之间的距离-->
+    <declare-styleable name="Indicator">space
+        <attr name="unSelectColor" format="color" />
+        <attr name="onSelectColor" format="color" />
+        <attr name="radius" format="dimension"/>
+        <attr name="space" format="dimension"/>
+    </declare-styleable>
+
+    <declare-styleable name="ImageFadeIn">
+        <attr name="first_image" format="reference"/>
+        <attr name="second_image" format="reference"/>
+        <attr name="third_image" format="reference"/>
+        <attr name="fourth_image" format="reference"/>
+    </declare-styleable>
+
+
+    <attr name="theme_start" format="reference"/>
+    <attr name="theme_center" format="reference"/>
+    <attr name="theme_end" format="reference"/>
+    <attr name="theme_text" format="reference"/>
+    <attr name="theme_ColorScheme" format="reference"/>
+    <attr name="theme_bottom_start" format="reference"/>
+    <attr name="theme_bottom_center" format="reference"/>
+    <attr name="theme_bottom_end" format="reference"/>
+
+</resources>

@@ -1,0 +1,66 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="DailyForecastTabLayout" parent="Widget.Design.TabLayout">
+        <item name="tabIndicatorColor">@color/white</item>
+        <item name="tabIndicatorHeight">2dp</item>
+        <item name="tabSelectedTextColor">@color/white</item>
+        <item name="tabTextColor">@color/unSelectTxt</item>
+        <item name="android:textSize">@dimen/text_size_16</item>
+    </style>
+
+    <style name="Dialog" parent="android:style/Theme.Dialog">
+        <item name="android:background">@drawable/shape_dialog_bg</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+    </style>
+
+    <style name="Dialog.Button">
+        <item name="android:textColor">@color/theme1_text</item>
+        <item name="android:textSize">@dimen/text_size_18</item>
+        <item name="android:background">@drawable/dialog_btn_selector</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar_Theme2">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+
+        <item name="theme_start">@color/theme1_start</item>
+        <item name="theme_center">@color/theme1_center</item>
+        <item name="theme_end">@color/theme1_end</item>
+        <item name="theme_text">@color/theme1_text</item>
+        <item name="theme_ColorScheme">@color/theme1_ColorScheme</item>
+        <item name="theme_bottom_start">@color/theme1_bottom_start</item>
+        <item name="theme_bottom_center">@color/theme1_bottom_center</item>
+        <item name="theme_bottom_end">@color/theme1_bottom_end</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar_Theme1">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+
+        <item name="theme_start">@color/theme2_start</item>
+        <item name="theme_center">@color/theme2_center</item>
+        <item name="theme_end">@color/theme2_end</item>
+        <item name="theme_text">@color/theme2_text</item>
+        <item name="theme_ColorScheme">@color/theme2_ColorScheme</item>
+        <item name="theme_bottom_start">@color/theme2_bottom_start</item>
+        <item name="theme_bottom_center">@color/theme2_bottom_center</item>
+        <item name="theme_bottom_end">@color/theme2_bottom_end</item>
+    </style>
+
+</resources>

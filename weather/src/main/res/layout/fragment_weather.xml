@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/swipeLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/ll_weather"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:animateLayoutChanges="true"
+            tools:background="@drawable/shape_theme1">
+
+            <TextView
+                android:id="@+id/tv_update"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginRight="@dimen/marginRight"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_12"
+                android:visibility="gone"
+                tools:text="21分钟前更新"
+                tools:visibility="visible" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/marginLeft"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_release_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_12"
+                    tools:text="2016-08-30 11:52发布" />
+
+                <TextView
+                    android:id="@+id/tv_wind"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_12"
+                    tools:text="北风 4~5级" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_cond"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="46dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/weather_icon"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:scaleType="centerCrop"
+                    tools:background="@drawable/w101_cloudy" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_tmp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:textSize="50sp"
+                        tools:text="25°" />
+
+                    <TextView
+                        android:id="@+id/now_cond_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size_20"
+                        tools:text="多云" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_aqi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/ll_cond"
+                android:layout_centerHorizontal="true"
+                android:layout_marginRight="@dimen/marginRight"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/shape_rect_bg"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingBottom="2dp"
+                android:paddingLeft="4dp"
+                android:paddingRight="4dp"
+                android:paddingTop="2dp"
+                android:visibility="gone"
+                tools:visibility="visible">
+
+                <ImageView
+                    android:id="@+id/iv_aqi_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:background="@drawable/notif_level1" />
+
+                <TextView
+                    android:id="@+id/tv_aqi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_12"
+                    tools:text="轻度 48" />
+            </LinearLayout>
+
+            <GridLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="30dp"
+                android:layout_marginTop="10dp"
+                android:columnCount="2">
+                <!--体感温度-->
+                <RelativeLayout
+                    android:id="@+id/rl_sendible_tmp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="60dp">
+
+                    <ImageView
+                        android:id="@+id/iv_ST"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/ic_sendible" />
+
+                    <TextView
+                        android:id="@+id/tv_sendible_tmp_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="2dp"
+                        android:layout_toRightOf="@id/iv_ST"
+                        android:text="@string/sendible_temperature"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size_14" />
+
+                    <TextView
+                        android:id="@+id/tv_sendible_tmp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tv_sendible_tmp_txt"
+                        android:layout_toRightOf="@id/iv_ST"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size_16"
+                        tools:text="25°" />
+                </RelativeLayout>
+
+                <!--相对湿度-->
+                <RelativeLayout
+                    android:id="@+id/rl_humidity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/iv_humidity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/ic_humidity" />
+
+                    <TextView
+                        android:id="@+id/tv_humidity_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="2dp"
+                        android:layout_toRightOf="@id/iv_humidity"
+                        android:text="@string/humidity"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size_14" />
+
+                    <TextView
+                        android:id="@+id/tv_humidity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tv_humidity_txt"
+                        android:layout_toRightOf="@id/iv_humidity"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size_16"
+                        tools:text="90%" />
+                </RelativeLayout>
+
+                <!--气压-->
+                <RelativeLayout
+                    android:id="@+id/rl_pressure"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp">
+
+                    <ImageView
+                        android:id="@+id/iv_pressure"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/ic_pressure" />
+
+                    <TextView
+                        android:id="@+id/tv_pressure_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="2dp"
+                        android:layout_toRightOf="@id/iv_pressure"
+                        android:text="@string/pressure"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size_14" />
+
+                    <TextView
+                        android:id="@+id/tv_pressure"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tv_pressure_txt"
+                        android:layout_toRightOf="@id/iv_pressure"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size_16"
+                        tools:text="1004hPa" />
+                </RelativeLayout>
+
+                <!--能见度-->
+                <RelativeLayout
+                    android:id="@+id/rl_visibility"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp">
+
+                    <ImageView
+                        android:id="@+id/iv_visibility"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/ic_visibility" />
+
+                    <TextView
+                        android:id="@+id/tv_visibility_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="2dp"
+                        android:layout_toRightOf="@id/iv_visibility"
+                        android:text="@string/visibility"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size_14" />
+
+                    <TextView
+                        android:id="@+id/tv_visibility"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tv_visibility_txt"
+                        android:layout_toRightOf="@id/iv_visibility"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size_16"
+                        tools:text="10km" />
+                </RelativeLayout>
+            </GridLayout>
+        </RelativeLayout>
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_daily_forecast"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_theme1_bottom" />
+
+
+    </LinearLayout>
+</android.support.v4.widget.SwipeRefreshLayout>

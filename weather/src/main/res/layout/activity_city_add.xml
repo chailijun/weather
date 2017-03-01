@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_city_add"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/theme_start"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context="com.chailijun.mweather.cityadd.CityAddActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/top_title_height">
+
+        <ImageView
+            android:id="@+id/iv_title_back"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/top_title_height"
+            android:background="@drawable/selector_title_back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/city_add"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_18" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <com.chailijun.mweather.customview.ClearEditText
+            android:id="@+id/et_search"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="@dimen/marginLeft"
+            android:layout_marginRight="@dimen/marginRight"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/shape_rect_search_edit_bg"
+            android:drawableLeft="@drawable/title_bar_search_zoomin"
+            android:drawableRight="@drawable/title_bar_search_button_clear_background"
+            android:gravity="center_vertical"
+            android:hint="@string/input_cityname"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/colorGrayText2"
+            android:textSize="@dimen/text_size_14" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_citylist"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+
+
+    </LinearLayout>
+
+
+
+
+</LinearLayout>
