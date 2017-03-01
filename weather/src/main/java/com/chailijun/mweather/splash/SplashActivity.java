@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Message;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,12 +26,13 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.lang.ref.WeakReference;
 
 
 public class SplashActivity extends BaseActivity implements SplashADListener {
 
 
-    private Handler handler = new Handler();
+    private MyHandler handler;
     private boolean isStartMain = false;
     private boolean isFirst = false;
 
@@ -62,6 +64,8 @@ public class SplashActivity extends BaseActivity implements SplashADListener {
         container = $(R.id.splash_container);
         skipView = $(R.id.skip_view);
         splashHolder = $(R.id.splash_holder);
+
+        handler = new MyHandler(this);
     }
 
 
@@ -84,19 +88,19 @@ public class SplashActivity extends BaseActivity implements SplashADListener {
             SPUtil.put(SplashActivity.this,Constants.IS_FIRST,false);
         }
 
-//        fetchSplashAD(this, container, skipView, Constants.APPID, Constants.SplashPosID, this, 0);
+        fetchSplashAD(this, container, skipView, Constants.APPID, Constants.SplashPosID, this, 0);
 
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N){
-            fetchSplashAD(this, container, skipView, Constants.APPID, Constants.SplashPosID, this, 0);
-        }else {
-            handler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    startActivity(new Intent(SplashActivity.this, MainActivity.class));
-                    finish();
-                }
-            }, 1000);
-        }
+//        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N){
+//            fetchSplashAD(this, container, skipView, Constants.APPID, Constants.SplashPosID, this, 0);
+//        }else {
+//            handler.postDelayed(new Runnable() {
+//                @Override
+//                public void run() {
+//                    startActivity(new Intent(SplashActivity.this, MainActivity.class));
+//                    finish();
+//                }
+//            }, 1000);
+//        }
     }
 
     private void fetchSplashAD(Activity activity,
@@ -142,13 +146,14 @@ public class SplashActivity extends BaseActivity implements SplashADListener {
     public void onNoAD(int errorCode) {
         Logger.i(TAG, "LoadSplashADFail, eCode=" + errorCode);
         /** 如果加载广告失败，则直接跳转 */
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                startActivity(new Intent(SplashActivity.this, MainActivity.class));
-                finish();
-            }
-        }, 1000);
+//        handler.postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                startActivity(new Intent(SplashActivity.this, MainActivity.class));
+//                finish();
+//            }
+//        }, 1000);
+        handler.sendEmptyMessageDelayed(1,1000);
 //        this.startActivity(new Intent(this, MainActivity.class));
 //        this.finish();
     }
@@ -238,6 +243,26 @@ public class SplashActivity extends BaseActivity implements SplashADListener {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+        }
+    }
+
+    private static class MyHandler extends Handler{
+
+        WeakReference<Activity> mWeakReference;
+
+        public MyHandler(Activity activity) {
+            mWeakReference = new WeakReference<Activity>(activity);
+        }
+
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+
+            Activity activity = mWeakReference.get();
+
+            activity.startActivity(new Intent(activity, MainActivity.class));
+            activity.finish();
+
         }
     }
 }
