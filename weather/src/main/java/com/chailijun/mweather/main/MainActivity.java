@@ -194,21 +194,13 @@ public class MainActivity extends BaseActivity {
                 .setShareboardclickCallback(new ShareBoardlistener() {
                     @Override
                     public void onclick(SnsPlatform snsPlatform, SHARE_MEDIA share_media) {
-//                        if (share_media.equals(SHARE_MEDIA.QQ)) {
-//
-//                        } else {
-//                            new ShareAction(MainActivity.this).withText("来自友盟自定义分享面板")
-//                                    .setPlatform(share_media)
-//                                    .setCallback(mShareListener)
-//                                    .share();
-//                        }
+
                         UMImage image = new UMImage(MainActivity.this,
                                 DensityUtil.snapShotWithoutStatusBar(MainActivity.this));
                         new ShareAction(MainActivity.this).withMedia(image)
                                 .setPlatform(share_media)
                                 .setCallback(mShareListener)
                                 .share();
-
                     }
                 });
     }
@@ -356,7 +348,7 @@ public class MainActivity extends BaseActivity {
         public void onResult(SHARE_MEDIA platform) {
 
             if (platform.name().equals("WEIXIN_FAVORITE")) {
-                Toast.makeText(mActivity.get(), platform + " 收藏成功啦", Toast.LENGTH_SHORT).show();
+                Toast.makeText(mActivity.get(), platform + "收藏成功啦", Toast.LENGTH_SHORT).show();
             } else {
                 if (platform != SHARE_MEDIA.MORE && platform != SHARE_MEDIA.SMS
                         && platform != SHARE_MEDIA.EMAIL
@@ -370,9 +362,8 @@ public class MainActivity extends BaseActivity {
                         && platform != SHARE_MEDIA.GOOGLEPLUS
                         && platform != SHARE_MEDIA.YNOTE
                         && platform != SHARE_MEDIA.EVERNOTE) {
-                    Toast.makeText(mActivity.get(), platform + " 分享成功啦", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(mActivity.get(), platform + "分享成功啦", Toast.LENGTH_SHORT).show();
                 }
-
             }
         }
 
@@ -390,18 +381,17 @@ public class MainActivity extends BaseActivity {
                     && platform != SHARE_MEDIA.GOOGLEPLUS
                     && platform != SHARE_MEDIA.YNOTE
                     && platform != SHARE_MEDIA.EVERNOTE) {
-                Toast.makeText(mActivity.get(), platform + " 分享失败啦", Toast.LENGTH_SHORT).show();
+                Toast.makeText(mActivity.get(), platform + "分享失败啦", Toast.LENGTH_SHORT).show();
                 if (t != null) {
                     Logger.d("throw", "throw:" + t.getMessage());
                 }
             }
-
         }
 
         @Override
         public void onCancel(SHARE_MEDIA platform) {
 
-            Toast.makeText(mActivity.get(), platform + " 分享取消了", Toast.LENGTH_SHORT).show();
+            Toast.makeText(mActivity.get(), platform + "分享取消了", Toast.LENGTH_SHORT).show();
         }
     }
 
