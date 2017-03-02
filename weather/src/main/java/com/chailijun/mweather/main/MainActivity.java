@@ -23,6 +23,7 @@ import com.chailijun.mweather.data.gen.SelectCityDao;
 import com.chailijun.mweather.setting.SettingActivity;
 import com.chailijun.mweather.share.ShareActivity;
 import com.chailijun.mweather.utils.Constants;
+import com.chailijun.mweather.utils.DensityUtil;
 import com.chailijun.mweather.utils.GetSignature;
 import com.chailijun.mweather.utils.Logger;
 import com.chailijun.mweather.utils.SPUtil;
@@ -32,6 +33,7 @@ import com.umeng.socialize.ShareAction;
 import com.umeng.socialize.UMShareAPI;
 import com.umeng.socialize.UMShareListener;
 import com.umeng.socialize.bean.SHARE_MEDIA;
+import com.umeng.socialize.media.UMImage;
 import com.umeng.socialize.shareboard.SnsPlatform;
 import com.umeng.socialize.utils.ShareBoardlistener;
 
@@ -188,32 +190,25 @@ public class MainActivity extends BaseActivity {
         /*增加自定义按钮的分享面板*/
         mShareAction = new ShareAction(MainActivity.this).setDisplayList(
                 SHARE_MEDIA.WEIXIN, SHARE_MEDIA.WEIXIN_CIRCLE, SHARE_MEDIA.WEIXIN_FAVORITE,
-                SHARE_MEDIA.SINA, SHARE_MEDIA.QQ, SHARE_MEDIA.QZONE,
-                SHARE_MEDIA.ALIPAY, SHARE_MEDIA.RENREN, SHARE_MEDIA.DOUBAN,
-                SHARE_MEDIA.SMS, SHARE_MEDIA.EMAIL, SHARE_MEDIA.YNOTE,
-                SHARE_MEDIA.EVERNOTE, SHARE_MEDIA.LAIWANG, SHARE_MEDIA.LAIWANG_DYNAMIC,
-                SHARE_MEDIA.LINKEDIN, SHARE_MEDIA.YIXIN, SHARE_MEDIA.YIXIN_CIRCLE,
-                SHARE_MEDIA.TENCENT, SHARE_MEDIA.FACEBOOK, SHARE_MEDIA.TWITTER,
-                SHARE_MEDIA.WHATSAPP, SHARE_MEDIA.GOOGLEPLUS, SHARE_MEDIA.LINE,
-                SHARE_MEDIA.INSTAGRAM, SHARE_MEDIA.KAKAO, SHARE_MEDIA.PINTEREST,
-                SHARE_MEDIA.POCKET, SHARE_MEDIA.TUMBLR, SHARE_MEDIA.FLICKR,
-                SHARE_MEDIA.FOURSQUARE, SHARE_MEDIA.MORE)
-                .addButton("umeng_sharebutton_copy", "umeng_sharebutton_copy", "umeng_socialize_copy", "umeng_socialize_copy")
-                .addButton("umeng_sharebutton_copyurl", "umeng_sharebutton_copyurl", "umeng_socialize_copyurl", "umeng_socialize_copyurl")
+                SHARE_MEDIA.SINA, SHARE_MEDIA.QQ, SHARE_MEDIA.QZONE, SHARE_MEDIA.MORE)
                 .setShareboardclickCallback(new ShareBoardlistener() {
                     @Override
                     public void onclick(SnsPlatform snsPlatform, SHARE_MEDIA share_media) {
-                        if (snsPlatform.mShowWord.equals("umeng_sharebutton_copy")) {
-                            Toast.makeText(MainActivity.this, "复制文本按钮", Toast.LENGTH_LONG).show();
-                        } else if (snsPlatform.mShowWord.equals("umeng_sharebutton_copyurl")) {
-                            Toast.makeText(MainActivity.this, "复制链接按钮", Toast.LENGTH_LONG).show();
+//                        if (share_media.equals(SHARE_MEDIA.QQ)) {
+//
+//                        } else {
+//                            new ShareAction(MainActivity.this).withText("来自友盟自定义分享面板")
+//                                    .setPlatform(share_media)
+//                                    .setCallback(mShareListener)
+//                                    .share();
+//                        }
+                        UMImage image = new UMImage(MainActivity.this,
+                                DensityUtil.snapShotWithoutStatusBar(MainActivity.this));
+                        new ShareAction(MainActivity.this).withMedia(image)
+                                .setPlatform(share_media)
+                                .setCallback(mShareListener)
+                                .share();
 
-                        } else {
-                            new ShareAction(MainActivity.this).withText("来自友盟自定义分享面板")
-                                    .setPlatform(share_media)
-                                    .setCallback(mShareListener)
-                                    .share();
-                        }
                     }
                 });
     }

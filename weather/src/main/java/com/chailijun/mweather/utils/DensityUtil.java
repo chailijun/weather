@@ -5,6 +5,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Point;
 import android.graphics.Rect;
+import android.view.Display;
 import android.view.View;
 import android.view.WindowManager;
 
@@ -125,7 +126,7 @@ public class DensityUtil {
      * @return
      */
     public static Bitmap snapShotWithoutStatusBar(Activity activity) {
-        if (null == activity) {
+        /*if (null == activity) {
             return null;
         }
         View view = activity.getWindow().getDecorView();
@@ -142,7 +143,37 @@ public class DensityUtil {
         bp = Bitmap.createBitmap(bmp, 0, statusBarHeight, width, height
                 - statusBarHeight);
         view.destroyDrawingCache();
-        return bp;
+        return bp;*/
+
+        if (null == activity) {
+            return null;
+        }
+
+        // 获取windows中最顶层的view
+        View view = activity.getWindow().getDecorView();
+        view.buildDrawingCache();
+
+        // 获取状态栏高度
+        Rect rect = new Rect();
+        view.getWindowVisibleDisplayFrame(rect);
+        int statusBarHeights = rect.top;
+        Display display = activity.getWindowManager().getDefaultDisplay();
+
+        // 获取屏幕宽和高
+        int widths = display.getWidth();
+        int heights = display.getHeight();
+
+        // 允许当前窗口保存缓存信息
+        view.setDrawingCacheEnabled(true);
+
+        // 去掉状态栏
+        Bitmap bmp = Bitmap.createBitmap(view.getDrawingCache(), 0,
+                statusBarHeights, widths, heights - statusBarHeights);
+
+        // 销毁缓存信息
+        view.destroyDrawingCache();
+
+        return bmp;
 
     }
 }
