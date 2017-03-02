@@ -20,7 +20,7 @@ public class WeatherApp extends Application {
 
     //友盟分享，各个平台的配置
     {
-        PlatformConfig.setWeixin("wxe8e033b156f25117", "22fb2125d1ef7b9c8ad87d679e8da5a0");
+        PlatformConfig.setWeixin("wxe8e033b156f25117", "a2da473118d5c5dff90b4adcd0f3d7a8");
         PlatformConfig.setSinaWeibo("504874542", "eeb88988aebd4b96c4538ee6d58c2ba3", "");
         PlatformConfig.setQQZone("1105916329", "bIgk6WuB4rZ2gwjw");
     }

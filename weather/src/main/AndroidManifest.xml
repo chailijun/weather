@@ -86,7 +86,6 @@
             android:name="UMENG_CHANNEL"
             android:value="${UMENG_CHANNEL_VALUE}" />
 
-
         <!--微信-->
         <activity
             android:name=".wxapi.WXEntryActivity"

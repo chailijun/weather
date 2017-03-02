@@ -9,8 +9,8 @@ android {
         applicationId "com.chailijun.mweather"
         minSdkVersion 15
         targetSdkVersion 25
-        versionCode 11
-        versionName "2.0.2"
+        versionCode 12
+        versionName "2.0.3"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
@@ -36,6 +36,15 @@ android {
             shrinkResources true    // 移除无用的resource文件
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    signingConfigs {
+        release {
+            storeFile file('mykeystore.jks')
+            storePassword "chai123456"
+            keyAlias "mykeystore"
+            keyPassword "chai123456"
         }
     }
 }
